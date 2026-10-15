@@ -1,50 +1,15 @@
-/* 학습 목표
-   - 앞에서 배운 Media Query 를 내 페이지에 적용한 뒤 GitHub Pages 로 배포할 수 있다.
-   - 배포한 주소를 스마트폰으로 열어 반응형이 동작하는지 확인할 수 있다.
-   실습 TODO : 1개 */
-
-body {
-  font-family: "Malgun Gothic", sans-serif;
-  margin: 0;
-  color: #24292f;
-}
-
-header {
-  padding: 20px 40px;
-  background-color: #dfe7f5;
-}
-
-.logo {
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.hero {
-  padding: 60px 40px;
-  background-color: #f6f8fa;
-}
-
-.cards {
-  display: flex;
-  /* 한 줄에 다 안 들어가면 다음 줄로 넘김 */
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 40px;
-}
-
-.card {
-  /* 기본(모바일): 카드 하나가 한 줄 전체 */
-  width: 100%;
-  /* 테두리(border)까지 width 안에 포함 */
-  box-sizing: border-box;
-  padding: 40px 0;
-  text-align: center;
-  border: 2px solid #d6d8dd;
-  border-radius: 12px;
-}
-
-/* [실습 포인트/힌트]
-   - 지금은 PC 에서도 카드가 세로로 1개씩 쌓임
-   - 480px 이상에서 한 줄에 3개가 되도록 .card 의 width 를 바꾸기 (3개 + 간격 2개 => 30%)
-   - Media Query 실습 파일(01_media_query.css)의 @media 블록 모양 참고 */
-/* TODO 1: @media (min-width: 480px) 블록 작성 */
+:root{color-scheme:light;--size:clamp(178px,31.5vmin,333px)}
+*{box-sizing:border-box}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#fff}
+body{font-family:Arial,sans-serif;overscroll-behavior:none;-webkit-tap-highlight-color:transparent}
+.playground{width:100%;height:100%;height:100svh;position:relative;display:grid;place-items:center;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 63% 42%,#fafafa 0%,#fefefe 38%,#fff 66%)}
+canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.pop-button{position:relative;z-index:2;display:block;width:var(--size);height:var(--size);padding:0;border:0;border-radius:23.5%;background:#f8f8f8;cursor:pointer;touch-action:manipulation;user-select:none;-webkit-user-select:none;outline:none;box-shadow:14px 23px 25px -7px #00000030,5px 6px 10px #0000000c,-13px -14px 25px #ffffff;transform:translateZ(0);will-change:transform;transition:box-shadow .2s ease,filter .2s ease}
+.pop-button img{width:100%;height:100%;display:block;border-radius:inherit;pointer-events:none}
+.pop-button::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 9px 10px 12px #00000030,inset -6px -7px 12px #ffffff88;opacity:0;pointer-events:none;transition:opacity .1s}
+.pop-button.pressed{box-shadow:3px 5px 9px #00000016,-4px -5px 10px #fff}
+.pop-button.pressed::after{opacity:1}
+.pop-button:focus-visible{outline:2px solid #d9b167;outline-offset:12px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:480px){:root{--size:clamp(174px,45vw,224px)}.pop-button{box-shadow:11px 18px 24px -7px #0000002d,3px 5px 8px #0000000a,-10px -10px 20px #fff}}
+@media(prefers-reduced-motion:reduce){.pop-button{transition:none}}

@@ -1,21 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>나의 첫 웹 페이지</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="팝콘 버튼을 클릭해 보세요. 누를 때마다 여러 가지 팝콘이 톡톡 튀어 오릅니다.">
+  <title>Popcorn</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preload" href="./assets/popcorn-button.webp" as="image">
+  <script src="./audio-data.js" defer></script>
+  <script src="./app.js" defer></script>
 </head>
 <body>
-  <header><span class="logo">My Web Page</span></header>
-  <section class="hero">
-    <h1>Welcome to My Page</h1>
-    <p>GitHub Pages로 배포한 첫 번째 웹 페이지입니다.</p>
-  </section>
-  <section class="cards">
-    <div class="card">소개</div>
-    <div class="card">프로젝트</div>
-    <div class="card">연락처</div>
-  </section>
+  <main class="playground" aria-label="팝콘 놀이터">
+    <canvas id="popcorn" aria-hidden="true"></canvas>
+    <button class="pop-button" id="pop" type="button" aria-label="팝콘 터뜨리기" title="클릭해서 팝콘 터뜨리기">
+      <img src="./assets/popcorn-button.webp" alt="" width="333" height="330" draggable="false">
+    </button>
+    <p class="sr-only" id="status" role="status" aria-live="polite">버튼을 누르거나 스페이스 키를 눌러 팝콘을 터뜨려 보세요.</p>
+  </main>
 </body>
 </html>
